@@ -1,0 +1,111 @@
+
+  [41;1m Illuminate\Database\QueryException [49;22m : [33mSQLSTATE[HY000] [2054] The server requested authentication method unknown to the client (SQL: select * from information_schema.tables where table_schema = vnutour2022 and table_name = migrations and table_type = 'BASE TABLE')[39m
+
+  at [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m664[39m
+    [90;3m660| [0m[33m        [0m[90;3m// If an exception occurs when attempting to run a query, we'll format the error[0m
+    [90;3m661| [0m[90;3m        // message to include the bindings with SQL, which will make this exception a[0m
+    [90;3m662| [0m[90;3m        // lot more helpful to the developer instead of just the database's errors.[0m
+    [90;3m663| [0m[90;3m        [0m[33mcatch ([0m[39;1mException $e[0m[33m) {[0m
+[41;1m  > [0m[90;3m664| [0m[33m            throw new [0m[39;1mQueryException[0m[33m([0m
+    [90;3m665| [0m[33m                [0m[39;1m$query[0m[33m, [0m[39;1m$this[0m[33m->[0m[39;1mprepareBindings[0m[33m([0m[39;1m$bindings[0m[33m), [0m[39;1m$e[0m
+    [90;3m666| [0m[39;1m            [0m[33m);[0m
+    [90;3m667| [0m[33m        }[0m
+    [90;3m668| [0m
+
+  [33mException trace:[39m
+
+  [36m1   [39m[33mPDOException::("PDO::__construct(): The server requested authentication method unknown to the client [caching_sha2_password]")[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php[39m:[32m70[39m
+
+  [36m2   [39m[33mPDO::__construct("mysql:host=db;port=3306;dbname=vnutour2022", "root", "vnutour2022", [])[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php[39m:[32m70[39m
+
+  [36m3   [39m[33mIlluminate\Database\Connectors\Connector::createPdoConnection("mysql:host=db;port=3306;dbname=vnutour2022", "root", "vnutour2022", [])[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php[39m:[32m46[39m
+
+  [36m4   [39m[33mIlluminate\Database\Connectors\Connector::createConnection("mysql:host=db;port=3306;dbname=vnutour2022", [])[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php[39m:[32m24[39m
+
+  [36m5   [39m[33mIlluminate\Database\Connectors\MySqlConnector::connect()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php[39m:[32m182[39m
+
+  [36m6   [39m[33mIlluminate\Database\Connectors\ConnectionFactory::Illuminate\Database\Connectors\{closure}()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m919[39m
+
+  [36m7   [39m[33mcall_user_func(Object(Closure))[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m919[39m
+
+  [36m8   [39m[33mIlluminate\Database\Connection::getPdo()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m944[39m
+
+  [36m9   [39m[33mIlluminate\Database\Connection::getReadPdo()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m399[39m
+
+  [36m10  [39m[33mIlluminate\Database\Connection::getPdoForSelect()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m325[39m
+
+  [36m11  [39m[33mIlluminate\Database\Connection::Illuminate\Database\{closure}("select * from information_schema.tables where table_schema = ? and table_name = ? and table_type = 'BASE TABLE'")[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m657[39m
+
+  [36m12  [39m[33mIlluminate\Database\Connection::runQueryCallback("select * from information_schema.tables where table_schema = ? and table_name = ? and table_type = 'BASE TABLE'", Object(Closure))[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m624[39m
+
+  [36m13  [39m[33mIlluminate\Database\Connection::run("select * from information_schema.tables where table_schema = ? and table_name = ? and table_type = 'BASE TABLE'", Object(Closure))[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php[39m:[32m333[39m
+
+  [36m14  [39m[33mIlluminate\Database\Connection::select("select * from information_schema.tables where table_schema = ? and table_name = ? and table_type = 'BASE TABLE'")[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php[39m:[32m18[39m
+
+  [36m15  [39m[33mIlluminate\Database\Schema\MySqlBuilder::hasTable("migrations")[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php[39m:[32m169[39m
+
+  [36m16  [39m[33mIlluminate\Database\Migrations\DatabaseMigrationRepository::repositoryExists()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php[39m:[32m585[39m
+
+  [36m17  [39m[33mIlluminate\Database\Migrations\Migrator::repositoryExists()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php[39m:[32m91[39m
+
+  [36m18  [39m[33mIlluminate\Database\Console\Migrations\MigrateCommand::prepareDatabase()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php[39m:[32m63[39m
+
+  [36m19  [39m[33mIlluminate\Database\Console\Migrations\MigrateCommand::handle()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php[39m:[32m32[39m
+
+  [36m20  [39m[33mcall_user_func_array([])[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php[39m:[32m32[39m
+
+  [36m21  [39m[33mIlluminate\Container\BoundMethod::Illuminate\Container\{closure}()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php[39m:[32m90[39m
+
+  [36m22  [39m[33mIlluminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Object(Closure))[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php[39m:[32m34[39m
+
+  [36m23  [39m[33mIlluminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), [])[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Container/Container.php[39m:[32m576[39m
+
+  [36m24  [39m[33mIlluminate\Container\Container::call()[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php[39m:[32m183[39m
+
+  [36m25  [39m[33mIlluminate\Console\Command::execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))[39m
+      [32m/var/www/html/vendor/symfony/console/Command/Command.php[39m:[32m255[39m
+
+  [36m26  [39m[33mSymfony\Component\Console\Command\Command::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php[39m:[32m170[39m
+
+  [36m27  [39m[33mIlluminate\Console\Command::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))[39m
+      [32m/var/www/html/vendor/symfony/console/Application.php[39m:[32m1021[39m
+
+  [36m28  [39m[33mSymfony\Component\Console\Application::doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))[39m
+      [32m/var/www/html/vendor/symfony/console/Application.php[39m:[32m275[39m
+
+  [36m29  [39m[33mSymfony\Component\Console\Application::doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))[39m
+      [32m/var/www/html/vendor/symfony/console/Application.php[39m:[32m149[39m
+
+  [36m30  [39m[33mSymfony\Component\Console\Application::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Console/Application.php[39m:[32m90[39m
+
+  [36m31  [39m[33mIlluminate\Console\Application::run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))[39m
+      [32m/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php[39m:[32m133[39m
+
+  [36m32  [39m[33mIlluminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))[39m
+      [32m/var/www/html/artisan[39m:[32m37[39m

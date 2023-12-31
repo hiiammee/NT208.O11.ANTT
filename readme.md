@@ -19,7 +19,7 @@ Fix user root for database
 
 password: vnutour2022
 
-    ALTER USER 'root'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'vnutour2022';
+    ALTER USER 'root'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'mydtt@123';
 
     docker-compose exec app npm install
     docker-compose exec app npm run watch
